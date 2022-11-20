@@ -12,4 +12,4 @@ pkill -9 main &
 sleep 20
 cat output.txt
 python3 readHeat.py
-shutdown +5
+/usr/sbin/shutdown +5
