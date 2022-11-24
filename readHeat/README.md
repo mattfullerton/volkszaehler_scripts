@@ -26,4 +26,4 @@ To build the source code:
 gcc main.c mbus-decode.c mbus.c -o main -lm
 ```
 
-The `run.sh` script (`chmod 700 run.sh` to make executable) is the clunky part: it pipes commands into the mbus-test program and redirects the output to text files. The main text output is parsed and the data used to send to Volkszaehler, by a Python script.
+The `run.sh` script (`chmod 700 run.sh` to make executable) is the clunky part: it pipes commands into the mbus-test program and redirects the output to text files. The main text output is parsed and the data used to send to Volkszaehler, by a Python script. And at the end, it tells the computer to shutdown in 5 minutes time! You've been warned! And yes, this script is assumed to run as root. In fact, the final, finishing clunk is to have it run automatically at startup (cronjob `@reboot`) and connect the Raspberry PI to a mechancal timer-switch that powers it on 4 times a day (our meter allows 4 readings per day).
