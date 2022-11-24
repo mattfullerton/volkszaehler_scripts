@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd /root/scripts/mbus
+cd /root/scripts/volkszaehler_scripts/readHeat
 rm startup.txt
 rm output.txt
 echo "1" | ./main > startup.txt &
