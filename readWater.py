@@ -6,6 +6,8 @@
 
 import requests
 import time
+import datetime
+
 
 # IP or host of your Volkszähler
 instance = "volkszaehler"
@@ -71,6 +73,11 @@ input("")
 
 for channel in water_counters_send:
     pushUrl = protocol + "://" + instance + "/middleware/data/" + channel[1] + ".json?operation=add&value=" + str(channel[3])
+    if channel[0] == "Washing Machine":
+        tsd = datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, 10, 0, 0)
+        tsts = int(time.mktime(tsd.timetuple()))
+        pushUrl += "&ts=" + str(tsts * 1000)
+        print("Note: Washing Machine will be set to 10am today - are you sure?")
+        input("")
     print("Sending request: " + pushUrl)
     pushResult = requests.get(pushUrl)
-
