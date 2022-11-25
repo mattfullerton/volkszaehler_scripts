@@ -24,9 +24,8 @@ with open("output.txt", "r") as ofile:
             ofile.readline()
             valueLine = ofile.readline()
             pvalue = int((valueLine.split("result: ")[1].split("\t")[0]))
-            if pvalue > 0:
-                print("Read " + str(pvalue) + " W")
-                break
+            print("Read " + str(pvalue) + " W")
+            break
 
 if mvalue is not None:
     print("Sending to Volkszähler")
